@@ -1,0 +1,98 @@
+@font-face {
+  font-family: Playfair Display;
+  src: url(../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: Lora;
+  src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
+}
+
+html {
+    font-size: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f2e7d5;
+  font-family: sans-serif;
+}
+
+.header {
+  background-color: #393e46;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+}
+
+.header .container {
+  align-items: center;
+  display: flex;
+  max-width: 1400px;
+  justify-content: center;
+}
+
+.logo img {
+  max-width: 233px;
+  vertical-align: bottom;
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.menu ul li input {
+    min-width: 250px;
+    padding: 10px;
+    outline: none;
+}
+
+::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.menu ul li a {
+  font-size: 14px;
+  color: #f7f7f7;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.menu ul a:hover {
+  background-color: #464d57;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding-right: 22px;
+}
+
+.container a {
+  text-decoration: none;
+}
+
+.logo span {
+  font-size: 32px;
+  font-family: "Playfair Display", serif;
+  color: #f7f7f7;
+  padding-left: 12px;
+}

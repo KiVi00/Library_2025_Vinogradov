@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="67" height="66" viewBox="0 0 67 66" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(1 0)">
+    <g>
+      <g transform="translate(1.682 0)">
+        <path d="M0 0L55.763 0L55.763 29.7361L0 29.7361L0 0Z" fill="#6D9886" fill-rule="evenodd" transform="translate(2.462 2.517)" />
+        <path d="M2.46157 1.17671e-06C2.46157 1.17671e-06 58.2246 1.17671e-06 58.2246 1.17671e-06C59.6138 1.17671e-06 60.7105 1.13516 60.7105 2.51709C60.7105 2.51709 60.7105 32.2532 60.7105 32.2532C60.7105 33.6352 59.6138 34.7456 58.2246 34.7456C58.2246 34.7456 2.46157 34.7456 2.46157 34.7456C1.09674 34.7456 0 33.6352 0 32.2532C0 32.2532 0 2.51708 0 2.51708C0 1.13516 1.09674 0 2.46157 0C2.46157 0 2.46157 1.17671e-06 2.46157 1.17671e-06ZM2.46155 2.51709L58.2246 2.51709L58.2246 32.2532L2.46155 32.2532L2.46155 2.51709L2.46155 2.51709Z" fill="#2B2A29" fill-rule="evenodd" />
+      </g>
+      <path d="M0 1.9495L6.99475 24.6033L32.0247 17.2248L55.8605 24.6033L65 1.92483C65 1.92483 32.0247 3.8147e-06 32.0247 3.8147e-06C25.3225 0.39484 7.26341e-07 1.94951 7.26341e-07 1.94951C7.26341e-07 1.94951 0 1.9495 0 1.9495Z" fill="#F2E7D5" fill-rule="evenodd" stroke-width="2" stroke="#2B2A29" transform="translate(0 37.016)" />
+      <path d="M2.43719 0L2.43719 17.2248" fill="none" stroke-width="2" stroke="#2B2A29" transform="translate(29.588 37.016)" />
+      <path d="M0 0L2.14473 21.1978L24.0795 20.3834L45.2587 22.4317L48.5733 0.246773L24.0795 2.1716L0 0Z" fill="#F2E7D5" fill-rule="evenodd" stroke-width="2" stroke="#2B2A29" transform="translate(7.945 6.219)" />
+      <path d="M0.584927 0L0 4.09643L12.0154 3.4795L24.2988 4.07175L23.6895 0.370159L0.584927 0Z" fill="#393E46" fill-rule="evenodd" stroke-width="2" stroke="#2B2A29" transform="translate(20.009 33.66)" />
+      <path d="M2.43719 0L2.43719 17.6689" fill="none" stroke-width="2" stroke="#2B2A29" transform="translate(29.588 8.39)" />
+      <path d="M0 7.00835L3.63142 10.7593L23.787 0L41.3592 10.3151L46.2336 6.959L23.787 0L0 7.00835Z" fill="#6D9886" fill-rule="evenodd" stroke-width="2" stroke="#2B2A29" transform="translate(8.238 54.241)" />
+      <path d="M0 2.46773L19.6925 0" fill="none" stroke-width="2" stroke="#B6484C" transform="translate(6.069 41.482)" />
+      <path d="M0 0L8.48144 2.46773" fill="none" stroke-width="2" stroke="#2B2A29" transform="translate(35.802 44.863)" />
+      <path d="M0 0L13.4046 2.46773" fill="none" stroke-width="2" stroke="#B6484C" transform="translate(40.921 51.995)" />
+      <path d="M0 2.46773L12.4297 0" fill="none" stroke-width="2" stroke="#2B2A29" transform="translate(14.233 51.23)" />
+    </g>
+  </g>
+</svg>
