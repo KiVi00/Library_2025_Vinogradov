@@ -13,13 +13,11 @@
   src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
 }
 
-html {
-    font-size: 14px;
-}
 
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -32,6 +30,7 @@ body {
   height: 75px;
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .container {
@@ -61,7 +60,7 @@ body {
 }
 
 ::placeholder {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Lora', sans-serif;
     font-size: 14px;
 }
 
@@ -115,11 +114,10 @@ main .container {
 .section-header {
   background-color: #506F62;
   width: 1200px;
-  height: 65px;
+  height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  align-self: baseline;
+  justify-content: start;
 }
 
 h1 {
@@ -133,23 +131,45 @@ h2 {
   color: #f7f7f7;
   font-size: 24px;
   font-weight: normal;
+  margin-left: 64px;
 }
 
-.main-section {
+.main-header-section {
   height: 325px;
   width: 1200px;
   background-color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.main-section {
+  height: 370px;
+  width: 1200px;
+  background-color: #f7f7f7;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 footer {
-  height: 130px;
+  height: 65px;
   color: #f7f7f7;
   background-color: #393E46;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+}
+
+footer .container {
+  display: flex;
   gap: 30px;
-  flex: 1;
+  justify-content: start;
 }
 
 footer nav a{
@@ -161,4 +181,36 @@ footer nav a{
 footer nav {
   display: flex;
   gap: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  font-family: Lora;
+  font-weight: normal;
+  margin-top: 10px;
+}
+
+.card {
+  width: 350px;
+  height: 165px;
+  border: 1px solid #808080;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.card p {
+  font-size: 16px;
+  width: 301px;
+  height: fit-content;
+  font-family: Lora;
+  padding: 5px;
+}
+
+.card-book {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
 }
