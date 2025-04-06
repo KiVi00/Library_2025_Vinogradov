@@ -59,7 +59,7 @@ body {
 }
 
 ::placeholder {
-  font-family: "Lora", sans-serif;
+  font-family: Lora, sans-serif;
   font-size: 16px;
 }
 
@@ -73,7 +73,7 @@ body {
   display: flex;
   align-items: center;
   padding: 0 15px;
-  font-family: "Montserrat", sans-serif;
+  font-family: Montserrat, sans-serif;
 }
 
 .menu ul a:hover {
@@ -100,7 +100,7 @@ main .container {
   flex-direction: column;
 }
 
-.main-header {
+h1 {
   background-color: #506f62;
   width: 100%;
   max-width: 1200px;
@@ -212,24 +212,24 @@ h3 {
   padding: 5px;
 }
 
-.card-book {
+.book-card {
   display: flex;
   gap: 10px;
   flex-direction: column;
 }
 
-.card-book-button {
+.book-card-button {
   border: none;
   height: 40px;
   border-radius: 4px;
-  background-color: #6D9886;
+  background-color: #547969;
   color: #f7f7f7;
   font-family: Montserrat;
   cursor: pointer;
 }
 
-.card-book-button:hover {
-  background-color: #506F62;
+.book-card-button:hover {
+  background-color: #445d52;
 }
 
 img {

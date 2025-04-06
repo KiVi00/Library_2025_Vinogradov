@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Электронная библиотека M-Library">
     <title>M-Library</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
@@ -10,18 +11,22 @@
     <header class="body-header">
       <div class="container">
         <a href="#">
-          <div class="logo">
-            <img src="/assets/img/logolibrary_2.svg" alt="M-Library" />
+          <div class="logo-div">
+            <img
+              src="/assets/img/logolibrary_2.svg"
+              alt="M-Library"
+              class="logo-img"
+            />
           </div>
         </a>
         <nav class="menu">
-          <ul>
-            <li><a href="">Каталог</a></li>
-            <li><a href="">О библиотеке</a></li>
-            <li><a href="">Приобрести подписку</a></li>
-            <li>
+          <ul class="nav-list" aria-label="menu ">
+            <li class="nav-item"><a href="#">Каталог</a></li>
+            <li class="nav-item"><a href="#">О библиотеке</a></li>
+            <li class="nav-item"><a href="#">Приобрести подписку</a></li>
+            <li class="nav-item">
               <form action="">
-                <label for="menu-search">Поиск</label>
+                <label for="menu-search" hidden>Поиск</label>
                 <input
                   type="search"
                   placeholder="Введите название и/или автора"
@@ -29,20 +34,18 @@
                 />
               </form>
             </li>
-            <li><a href="">Вход</a></li>
-            <li><a href="">Регистрация</a></li>
+            <li class="nav-item"><a href="#">Вход</a></li>
+            <li class="nav-item"><a href="#">Регистрация</a></li>
           </ul>
         </nav>
       </div>
     </header>
     <main>
       <div class="container">
-        <header class="main-header">
-          <h1>Библиотека M-Library</h1>
-        </header>
+        <h1>Библиотека M-Library</h1>
         <section class="main-header-section">
           <div class="card">
-            <h3>Множество книг</h3>
+            <h2>Множество книг</h2>
             <p>
               В M-Library собраны книги самых разных жанров и авторов, их
               количество превышает 100 штук! Вы обязательно найдете то, что вам
@@ -50,87 +53,87 @@
             </p>
           </div>
           <div class="card">
-            <h3>Бесплатные книги</h3>
+            <h2>Бесплатные книги</h2>
             <p>
               В M-Library представлено огромное количество бесплатных книг,
               которые вы можете читать без ограничений!
             </p>
           </div>
           <div class="card">
-            <h3>Подписка</h3>
+            <h2>Подписка</h2>
             <p>
-              Приобретение подписки откроет вам доступ ко всем книга M-Library,
+              Приобретение подписки откроет вам доступ ко всем книгам M-Library,
               а также позволит загружать их себе на устройство!
             </p>
           </div>
         </section>
         <section class="main-section">
           <h2>Популярные</h2>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
         </section>
         <section class="main-section">
           <h2>Недавно добавленные</h2>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
         </section>
         <section class="main-section">
           <h2>Доступные по подписке</h2>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
-          <article class="card-book">
+          <article class="book-card">
             <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="card-book-button">Читать онлайн</button>
+            <button class="book-card-button">Читать онлайн</button>
           </article>
         </section>
       </div>
