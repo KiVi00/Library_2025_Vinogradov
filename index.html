@@ -3,152 +3,151 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Электронная библиотека M-Library">
+    <meta name="description" content="Электронная библиотека M-Library" />
     <title>M-Library</title>
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
-  <body>
-    <header class="body-header">
+  <body class="page">
+    <header class="header">
       <div class="container">
-        <a href="#">
-          <div class="logo-div">
-            <img
-              src="/assets/img/logolibrary_2.svg"
-              alt="M-Library"
-              class="logo-img"
-            />
-          </div>
+        <a href="#" class="logo">
+          <img
+            src="/assets/img/logolibrary_2.svg"
+            alt="M-Library"
+            class="logo__logo-image"
+          />
         </a>
-        <nav class="menu">
-          <ul class="nav-list" aria-label="menu ">
-            <li class="nav-item"><a href="#">Каталог</a></li>
-            <li class="nav-item"><a href="#">О библиотеке</a></li>
-            <li class="nav-item"><a href="#">Приобрести подписку</a></li>
-            <li class="nav-item">
-              <form action="">
-                <label for="menu-search" hidden>Поиск</label>
-                <input
-                  type="search"
-                  placeholder="Введите название и/или автора"
-                  id="menu-search"
-                />
-              </form>
+        <nav class="nav">
+          <ul class="nav__list" aria-label="menu">
+            <li class="nav__item"><a href="#" class="nav__link">Каталог</a></li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">О&nbsp;библиотеке</a>
             </li>
-            <li class="nav-item"><a href="#">Вход</a></li>
-            <li class="nav-item"><a href="#">Регистрация</a></li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Приобрести&nbsp;подписку</a>
+            </li>
+            <li class="nav__space" aria-hidden></li>
+            <li class="nav__item">
+              <div class="search">
+                <form class="search__form">
+                  <label
+                    for="menu-search"
+                    class="search__label visually-hidden"
+                    hidd
+                    >Поиск</label
+                  >
+                  <input
+                    class="search__input"
+                    type="search"
+                    placeholder="Введите название книги или автора"
+                    id="nav-search-input"
+                  />
+                </form>
+                <button type="submit" class="search__button" aria-label="search-button">
+                  <svg
+                    width="27"
+                    height="27"
+                    viewBox="0 0 27 27"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="search__icon"
+                  >
+                    <g transform="matrix(-1 0 0 1 26 1)">
+                      <path
+                        d="M9.30142 0C14.4383 0 18.6028 4.02625 18.6028 8.99261C18.6028 13.959 14.4383 17.9852 9.30142 17.9852C4.16409 17.9852 0 13.959 0 8.99261C0 4.02625 4.16409 6.92328e-07 9.30142 6.92328e-07C9.30142 6.92328e-07 9.30142 0 9.30142 0Z"
+                        fill="none"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        transform="translate(6.397 0)"
+                      />
+                      <path
+                        d="M7.8472 0C12.1815 0 15.6948 3.39668 15.6948 7.58667C15.6948 11.7771 12.1815 15.1737 7.8472 15.1737C3.51332 15.1737 0 11.7771 0 7.58667C0 3.39668 3.51332 1.19209e-07 7.8472 1.19209e-07C7.8472 1.19209e-07 7.8472 0 7.8472 0Z"
+                        transform="translate(7.842 1.32)"
+                      />
+                      <path
+                        d="M8.79958 0L0 7.7117L2.66774 9.78633L10.1783 1.16597L8.79958 0Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                        stroke-width="2"
+                        stroke="currentColor"
+                        transform="translate(0 15.214)"
+                      />
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </li>
+            <li class="nav__item"><a href="#" class="nav__link">Вход</a></li>
+            <li class="nav__item">
+              <a href="#" class="nav__link">Регистрация</a>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
-    <main>
+    <main class="main">
       <div class="container">
-        <h1>Библиотека M-Library</h1>
-        <section class="main-header-section">
-          <div class="card">
-            <h2>Множество книг</h2>
-            <p>
+        <h1 class="main__title">Библиотека M-Library</h1>
+        <section class="features">
+          <div class="features__card">
+            <h2 class="features__title">Множество книг</h2>
+            <p class="features__text">
               В M-Library собраны книги самых разных жанров и авторов, их
               количество превышает 100 штук! Вы обязательно найдете то, что вам
               бы хотелось прочесть!
             </p>
           </div>
-          <div class="card">
-            <h2>Бесплатные книги</h2>
-            <p>
+          <div class="features__card">
+            <h2 class="features__title">Бесплатные книги</h2>
+            <p class="features__text">
               В M-Library представлено огромное количество бесплатных книг,
               которые вы можете читать без ограничений!
             </p>
           </div>
-          <div class="card">
-            <h2>Подписка</h2>
-            <p>
+          <div class="features__card">
+            <h2 class="features__title">Подписка</h2>
+            <p class="features__text">
               Приобретение подписки откроет вам доступ ко всем книгам M-Library,
               а также позволит загружать их себе на устройство!
             </p>
           </div>
         </section>
-        <section class="main-section">
-          <h2>Популярные</h2>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
+        <section class="book-section">
+          <h2 class="book-section__title">Популярные</h2>
+          <div class="book-section__grid">
+            <article class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </article>
+          </div>
         </section>
-        <section class="main-section">
-          <h2>Недавно добавленные</h2>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
+        <section class="book-section">
+          <h2 class="book-section__title">Недавно добавленные</h2>
+          <div class="book-section__grid"></div>
         </section>
-        <section class="main-section">
-          <h2>Доступные по подписке</h2>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
-          <article class="book-card">
-            <img src="/assets/img/book-cover.webp" alt="book-cover" />
-            <button class="book-card-button">Читать онлайн</button>
-          </article>
+        <section class="book-section">
+          <h2 class="book-section__title">Доступные по подписке</h2>
+          <div class="book-section__grid"></div>
         </section>
       </div>
     </main>
-    <footer>
+    <!-- <footer class="footer">
       <div class="container">
-        <nav class="menu">
-          <div>
+        <nav class="nav footer__nav">
+          <div class="footer__info">
             &copy; Электронная библиотека M-Library, 2025. Контактный e-mail:
-            <a href="mailto:mLibrary@gmail.com">mLibrary@gmail.com</a>
+            <a class="footer__link" href="mailto:mLibrary@gmail.com"
+              >mLibrary@gmail.com</a
+            >
           </div>
-          <a href="">Авторам и правообладателям</a>
-          <a href="">Политика конфиденциальности</a>
+          <a class="footer__link" href="">Авторам и правообладателям</a>
+          <a class="footer__link" href="">Политика конфиденциальности</a>
         </nav>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>
