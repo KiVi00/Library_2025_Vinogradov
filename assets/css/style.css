@@ -1,26 +1,23 @@
 @font-face {
-  font-family: Playfair Display;
+  font-family: "Playfair Display";
   src: url(../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
 }
 
 @font-face {
-  font-family: Montserrat;
+  font-family: "Montserrat";
   src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
 }
 
 @font-face {
-  font-family: Lora;
+  font-family: "Lora";
   src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .page {
   background-color: #F2E7D5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .header {
@@ -36,28 +33,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  width: fit-content;
   height: 75px;
-  width: 240px;
+  transition: scale 0.3s ease;
 }
 
 .logo:hover {
   background-color: #464d57;
+  scale: 1.02;
 }
 
 .logo__logo-image {
   height: 65px;
-  width: auto;
-  transition: scale 0.3s ease;
-}
-
-.logo__logo-image:hover {
-  scale: 1.05;
+  min-width: 229px;
 }
 
 .container {
-  width: 1400px;
+  max-width: 1400px;
+  width: 100%;
   display: flex;
+  margin: 0 auto;
 }
 
 .container__main {
@@ -65,18 +60,17 @@
   align-items: center;
 }
 
-.nav {
-  display: flex;
-  flex: 1;
+.container__header {
+  align-items: center;
 }
 
-.nav__space {
-  flex: 1;
+.nav {
+  display: flex;
+  margin-right: auto;
 }
 
 .nav__list {
   display: flex;
-  flex: 1;
   list-style: none;
 }
 
@@ -92,7 +86,7 @@
   color: #f7f7f7;
   text-decoration: none;
   height: 75px;
-  font-family: Montserrat, sans-serif;
+  font-family: "Montserrat", sans-serif;
   padding: 0px 15px;
   font-weight: 600;
   text-align: center;
@@ -108,19 +102,17 @@
   align-items: center;
   margin: 0px 15px;
   border-radius: 4px;
-  overflow: visible;
-  flex: 1;
   border: solid 1px #BDBDBD;
-  
+  height: 40px;
 }
 
 .search__input {
   outline: none;
   height: 40px;
-  background-color: rgba(0 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   padding: 0px 15px;
-  font-family: Lora, serif;
+  font-family: "Lora", serif;
   font-size: 16px;
   min-width: 340px;
 }
@@ -130,19 +122,21 @@
 }
 
 .search__input::placeholder {
-  font-family: Lora, serif;
+  font-family: "Lora", serif;
   font-size: 16px;
 }
 
 .search__button {
-  background-color: rgba(0 0, 0, 0);
+
+  background-color: rgba(0, 0, 0, 0);
   border: none;
   cursor: pointer;
-  height: fit-content;
+  height: auto;
   margin-right: 10px;
 }
 
 .search__icon {
+  display: block;
   border-radius: 4px;
   color: #BDBDBD;
   transition: color 0.3s ease;
@@ -168,8 +162,8 @@
 
 .main {
   display: flex;
+  flex: 1;
   justify-content: center;
-  margin: 35px 0px;
 }
 
 .main__title {
@@ -178,39 +172,37 @@
   align-items: center;
   width: inherit;
   height: 65px;
-  font-family: Playfair Display, serif;
+  font-family: "Playfair Display", serif;
   color: #f7f7f7;
   background-color: #506F62;
+  margin-top: 35px;
 }
 
 .features-section {
   display: flex;
   flex-direction: column;
   background-color: #f7f7f7;
-  align-items: center;
-  justify-content: center;
-  gap: 60px;
-  height: 325px;
   width: inherit;
+  padding-bottom: 60px;
 }
 
 .features-section__cards-wrapper {
   display: flex;
   flex-direction: row;
-  gap: 60px;
+  justify-content: center;
+  gap: 45px;
 }
 
 .features-section__card {
   display: flex;
-  width: 350px;
-  height: 165px;
+  min-width: 350px;
+  height: auto;
   border: 1px solid #BDBDBD;
   border-radius: 4px;
   flex-direction: column;
-  font-family: Lora, serif;
+  font-family: "Lora", serif;
   align-items: center;
-  justify-content: baseline;
-  padding-top: 10px;
+  padding: 12px 0px;
 }
 
 .features-section__card-title {
@@ -225,6 +217,136 @@
 }
 
 .features-section__section-title {
-  font-family: Playfair Display;
-  align-self: baseline;
+  font-family: "Playfair Display";
+}
+
+.features-section__header {
+  margin: 35px 64px;
+}
+
+.book-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  width: inherit;
+  padding-bottom: 60px;
+}
+
+.book-section__title {
+  display: flex;
+  padding: 47px 64px 34px;
+  height: 115px;
+  font-family: "Playfair Display", serif;
+  color: #f7f7f7;
+  background-color: #506F62;
+}
+
+.book-section__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+  .nav__list {
+    display: none;
+  }
+  
+  .search__input {
+    min-width: 200px;
+  }
+  
+  .features-section__cards-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .features-section__card {
+    min-width: 45%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 60px;
+  }
+  
+  .logo {
+    height: 60px;
+    width: 180px;
+  }
+  
+  .logo__logo-image {
+    height: 50px;
+  }
+  
+  .nav__link {
+    height: 60px;
+  }
+  
+  .search {
+    margin: 0 10px;
+  }
+  
+  .search__input {
+    min-width: 150px;
+    padding: 0 10px;
+  }
+  
+  .features-section {
+    height: auto;
+    padding: 30px 0;
+  }
+  
+  .features-section__card {
+    min-width: 100%;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .logo {
+    width: 160px;
+  }
+  
+  .search__input {
+    min-width: 120px;
+    font-size: 14px;
+  }
+  
+  .search__input::placeholder {
+    font-size: 14px;
+  }
+  
+  .features-section {
+    gap: 40px;
+  }
+  
+  .features-section__cards-wrapper {
+    gap: 20px;
+  }
+  
+  .features-section__card-text {
+    width: 90%;
+  }
 }
