@@ -60,6 +60,11 @@
   display: flex;
 }
 
+.container__main {
+  flex-direction: column;
+  align-items: center;
+}
+
 .nav {
   display: flex;
   flex: 1;
@@ -90,13 +95,11 @@
   font-family: Montserrat, sans-serif;
   padding: 0px 15px;
   font-weight: 600;
-  transition: scale 0.3s ease;
   text-align: center;
 }
 
 .nav__link:hover {
   background-color: #464d57;
-  scale: 1.05;
 }
 
 .search {
@@ -117,7 +120,7 @@
   background-color: rgba(0 0, 0, 0);
   border: none;
   padding: 0px 15px;
-  font-family: Lora, "serif";
+  font-family: Lora, serif;
   font-size: 16px;
   min-width: 340px;
 }
@@ -127,7 +130,7 @@
 }
 
 .search__input::placeholder {
-  font-family: Lora, "serif";
+  font-family: Lora, serif;
   font-size: 16px;
 }
 
@@ -166,4 +169,62 @@
 .main {
   display: flex;
   justify-content: center;
+  margin: 35px 0px;
+}
+
+.main__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: 65px;
+  font-family: Playfair Display, serif;
+  color: #f7f7f7;
+  background-color: #506F62;
+}
+
+.features-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7f7f7;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  height: 325px;
+  width: inherit;
+}
+
+.features-section__cards-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 60px;
+}
+
+.features-section__card {
+  display: flex;
+  width: 350px;
+  height: 165px;
+  border: 1px solid #BDBDBD;
+  border-radius: 4px;
+  flex-direction: column;
+  font-family: Lora, serif;
+  align-items: center;
+  justify-content: baseline;
+  padding-top: 10px;
+}
+
+.features-section__card-title {
+  text-align: center;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.features-section__card-text {
+  text-align: left;
+  width: 295px;
+}
+
+.features-section__section-title {
+  font-family: Playfair Display;
+  align-self: baseline;
 }

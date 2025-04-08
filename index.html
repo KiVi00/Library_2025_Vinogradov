@@ -43,7 +43,12 @@
                     id="nav-search-input"
                   />
                 </form>
-                <button type="submit" class="search__button" aria-label="search-button">
+                <button
+                  type="submit"
+                  class="search__button"
+                  aria-label="search-button"
+                  title="Search"
+                >
                   <svg
                     width="27"
                     height="27"
@@ -86,34 +91,41 @@
       </div>
     </header>
     <main class="main">
-      <div class="container">
+      <div class="container container__main">
         <h1 class="main__title">Библиотека M-Library</h1>
-        <section class="features">
-          <div class="features__card">
-            <h2 class="features__title">Множество книг</h2>
-            <p class="features__text">
-              В M-Library собраны книги самых разных жанров и авторов, их
-              количество превышает 100 штук! Вы обязательно найдете то, что вам
-              бы хотелось прочесть!
-            </p>
-          </div>
-          <div class="features__card">
-            <h2 class="features__title">Бесплатные книги</h2>
-            <p class="features__text">
-              В M-Library представлено огромное количество бесплатных книг,
-              которые вы можете читать без ограничений!
-            </p>
-          </div>
-          <div class="features__card">
-            <h2 class="features__title">Подписка</h2>
-            <p class="features__text">
-              Приобретение подписки откроет вам доступ ко всем книгам M-Library,
-              а также позволит загружать их себе на устройство!
-            </p>
+        <section class="features-section">
+          <header class="features-section__header">
+            <h2 class="features-section__section-title">
+              Добро пожаловать в M-Library!
+            </h2>
+          </header>
+          <div class="features-section__cards-wrapper">
+            <div class="features-section__card">
+              <h3 class="features-section__card-title">Множество книг</h3>
+              <p class="features-section__card-text">
+                В M-Library собраны книги самых разных жанров и авторов, их
+                количество превышает 100 штук! Вы обязательно найдете то, что
+                вам бы хотелось прочесть!
+              </p>
+            </div>
+            <div class="features-section__card">
+              <h3 class="features-section__card-title">Бесплатные книги</h3>
+              <p class="features-section__card-text">
+                В M-Library представлено огромное количество бесплатных книг,
+                которые вы можете читать без ограничений!
+              </p>
+            </div>
+            <div class="features-section__card">
+              <h3 class="features-section__card-title">Подписка</h3>
+              <p class="features-section__card-text">
+                Приобретение подписки откроет вам доступ ко всем книгам
+                M-Library, а также позволит загружать их себе на устройство!
+              </p>
+            </div>
           </div>
         </section>
         <section class="book-section">
-          <h2 class="book-section__title">Популярные</h2>
+          <h3 class="book-section__title">Популярные</h3>
           <div class="book-section__grid">
             <article class="book-card">
               <img
