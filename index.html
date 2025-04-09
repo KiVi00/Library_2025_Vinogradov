@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Электронная библиотека M-Library" />
     <title>M-Library</title>
-    <link rel="stylesheet" href="/assets/css/reset.css">
+    <link rel="stylesheet" href="/assets/css/reset.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
   </head>
   <body class="page">
@@ -124,8 +124,87 @@
           </div>
         </section>
         <section class="book-section">
-          <h2 class="book-section__title">Популярные</h2>
+          <header class="book-section__header">
+            <h2 class="book-section__title">Популярные</h2>
+          </header>
+          <div class="book-section__grid-wrapper">
+            <div class="book-section__grid">
+              <div class="book-card">
+                <img
+                  class="book-card__image"
+                  src="/assets/img/book-cover.webp"
+                  alt="book-cover"
+                  width="180"
+                  height="297"
+                />
+                <button class="book-card__button">Читать онлайн</button>
+              </div>
+              <div class="book-card">
+                <img
+                  class="book-card__image"
+                  src="/assets/img/book-cover.webp"
+                  alt="book-cover"
+                  width="180"
+                  height="297"
+                />
+                <button class="book-card__button">Читать онлайн</button>
+              </div>
+              <div class="book-card">
+                <img
+                  class="book-card__image"
+                  src="/assets/img/book-cover.webp"
+                  alt="book-cover"
+                  width="180"
+                  height="297"
+                />
+                <button class="book-card__button">Читать онлайн</button>
+              </div>
+              <div class="book-card">
+                <img
+                  class="book-card__image"
+                  src="/assets/img/book-cover.webp"
+                  alt="book-cover"
+                  width="180"
+                  height="297"
+                />
+                <button class="book-card__button">Читать онлайн</button>
+              </div>
+              <div class="book-card">
+                <img
+                  class="book-card__image"
+                  src="/assets/img/book-cover.webp"
+                  alt="book-cover"
+                  width="180"
+                  height="297"
+                />
+                <button class="book-card__button">Читать онлайн</button>
+              </div>
+              <div class="book-card">
+                <img
+                  class="book-card__image"
+                  src="/assets/img/book-cover.webp"
+                  alt="book-cover"
+                  width="180"
+                  height="297"
+                />
+                <button class="book-card__button">Читать онлайн</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="book-section">
+          <h2 class="book-section__title">Недавно добавленные</h2>
           <div class="book-section__grid">
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
             <div class="book-card">
               <img
                 class="book-card__image"
@@ -179,12 +258,69 @@
           </div>
         </section>
         <section class="book-section">
-          <h2 class="book-section__title">Недавно добавленные</h2>
-          <div class="book-section__grid"></div>
-        </section>
-        <section class="book-section">
           <h2 class="book-section__title">Доступные по подписке</h2>
-          <div class="book-section__grid"></div>
+          <div class="book-section__grid">
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="book-card__button">Читать онлайн</button>
+            </div>
+          </div>
         </section>
       </div>
     </main>
@@ -192,9 +328,11 @@
       <div class="container">
         <nav class="nav footer__nav">
           <div class="footer__info">
-            &copy; Электронная библиотека M-Library, 2025. Контактный e-mail:
-            <a class="footer__link" href="mailto:mLibrary@gmail.com"
-              >mLibrary@gmail.com</a
+            <span
+              >&copy; Электронная библиотека M-Library, 2025. Контактный e-mail:
+              <a class="footer__email" href="mailto:mLibrary@gmail.com"
+                >mLibrary@gmail.com</a
+              ></span
             >
           </div>
           <a class="footer__link" href="">Авторам и правообладателям</a>
