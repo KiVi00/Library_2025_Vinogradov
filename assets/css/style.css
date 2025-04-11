@@ -1,28 +1,50 @@
 @font-face {
   font-family: "Playfair Display";
   src: url(../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
+  font-display: optional;
 }
 
 @font-face {
   font-family: "Montserrat";
   src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
+  font-display: optional;
 }
 
 @font-face {
   font-family: "Lora";
   src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
+  font-display: optional;
+}
+
+:root {
+  --main-backgound-color: #f2e7d5;
+  --white-color: #f7f7f7;
+  --nav-button-hover-color: #464d57;
+  --nav-color: #393e46;
+  --default-button-color: #506F62;
+  --default-button-hover-color: #33373d;
+  --default-border-color: #BDBDBD;
+  --default-icon-color: #c1c1c1;
+  --default-icon-hover-color: #9b9b9b;
+
+  --header-color: #506F62;
+  --main-content-font: "Lora";
+  --nav-font: "Montserrat";
+  --heading-font: "Playfair Display";
+
+  --container-max-width: 1400px;
 }
 
 .page {
-  background-color: #f2e7d5;
+  background-color: var(--main-backgound-color);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  font-family: "Lora";
+  font-family: var(--main-content-font);
 }
 
 .header {
-  background-color: #393e46;
+  background-color: var(--nav-color);
   height: 75px;
   display: flex;
   justify-content: center;
@@ -42,7 +64,7 @@
 }
 
 .logo:hover {
-  background-color: #464d57;
+  background-color: var(--nav-button-hover-color);
   scale: 1.05;
 }
 
@@ -52,11 +74,11 @@
 }
 
 .container {
-  max-width: 1400px;
+  max-width: var(--container-max-width);
   width: 100%;
   display: flex;
   margin: 0 auto;
-  padding-inline: 50px;
+  height: fit-content;
 }
 
 .container__main {
@@ -87,10 +109,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #f7f7f7;
+  color: var(--white-color);
   text-decoration: none;
   height: 75px;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--nav-font), sans-serif;
   padding: 0px 15px;
   font-weight: 600;
   text-align: center;
@@ -98,16 +120,16 @@
 }
 
 .nav__link:hover {
-  background-color: #464d57;
+  background-color: var(--nav-button-hover-color);
 }
 
 .search {
   display: flex;
-  background-color: #f7f7f7;
+  background-color: var(--white-color);
   align-items: center;
   margin: 0px 15px;
   border-radius: 4px;
-  border: solid 1px #BDBDBD;
+  border: solid 1px var(--default-border-color);
   height: 40px;
 }
 
@@ -117,8 +139,8 @@
   background-color: transparent;
   border: none;
   padding: 0px 15px;
-  font-family: "Lora", serif;
-  font-size: 16px;
+  font-family: var(--main-content-font), serif;
+  font-size: 1rem;
   min-width: 340px;
 }
 
@@ -127,8 +149,8 @@
 }
 
 .search__input::placeholder {
-  font-family: "Lora", serif;
-  font-size: 16px;
+  font-family: var(--main-content-font), serif;
+  font-size: 1rem;
 }
 
 .search__button {
@@ -143,12 +165,12 @@
 .search__icon {
   display: block;
   border-radius: 4px;
-  color: #BDBDBD;
+  color: var(--default-icon-color);
   transition: color 0.3s ease;
 }
 
 .search__icon:hover {
-  color:#9b9b9b;
+  color:var(--default-icon-hover-color);
 }
 
 .visually-hidden {
@@ -177,16 +199,16 @@
   align-items: center;
   width: inherit;
   height: 65px;
-  font-family: "Playfair Display", serif;
-  color: #f7f7f7;
-  background-color: #506F62;
+  font-family: var(--heading-font), serif;
+  color: var(--white-color);
+  background-color: var(--header-color);
   margin-top: 35px;
 }
 
 .features-section {
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: var(--white-color);
   width: inherit;
   padding-bottom: 60px;
 }
@@ -203,10 +225,10 @@
   min-width: 100px;
   max-width: 350px;
   height: auto;
-  border: 1px solid #BDBDBD;
+  border: 1px solid var(--default-border-color);
   border-radius: 4px;
   flex-direction: column;
-  font-family: "Lora", serif;
+  font-family: var(--main-content-font), serif;
   align-items: center;
   padding: 15px;
 }
@@ -214,7 +236,7 @@
 .features-section__card-title {
   text-align: center;
   margin-bottom: 5px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .features-section__card-text {
@@ -223,7 +245,7 @@
 }
 
 .features-section__section-title {
-  font-family: "Playfair Display";
+  font-family: var(--heading-font);
 }
 
 .features-section__header {
@@ -233,7 +255,7 @@
 .book-section {
   display: flex;
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: var(--white-color);
   width: 100%;
 }
 
@@ -247,9 +269,9 @@
   display: flex;
   padding: 47px 64px 34px;
   height: 115px;
-  font-family: "Playfair Display", serif;
-  color: #f7f7f7;
-  background-color: #506F62;
+  font-family: var(--heading-font), serif;
+  color: var(--white-color);
+  background-color: var(--header-color);
 }
 
 .book-section__grid {
@@ -271,11 +293,11 @@
 
 .footer {
   display: inline-flex;
-  background-color: #393e46;
+  background-color: var(--nav-color);
   max-height: 75px;
-  color: #f7f7f7;
+  color: var(--white-color);
   margin-top: 35px;
-  font-family: "Lora";
+  font-family: var(--main-content-font);
 }
 
 .footer__info {
@@ -285,143 +307,92 @@
 
 .footer__link {
   text-decoration: none;
-  color: #f7f7f7;
+  color: var(--white-color);
   max-height: 75px;
   padding-block: 20px;
   height: 100%;
   display: inline-flex;
   align-items: center;
   padding-inline: 15px;
+  transition: background-color 0.3s ease;
 }
 
 .footer__email {
-  color: #f7f7f7;
+  color: var(--white-color);
+  margin-right: 15px;
 }
 
 .footer__link:hover {
   text-decoration: none;
-  background-color: #464d57;
+  background-color: var(--nav-button-hover-color);
 }
 
 .footer__nav {
   display: inline-flex;
-  font-size: 16px; 
+  font-size: 1rem; 
 }
 
-.book-card__button {
+.button {
   outline: none;
   border: none;
-  background-color: #3f554b;
-  color: #f7f7f7;
+  background-color: var(--default-button-color);
+  color: var(--white-color);
   padding: 10px 20px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
   max-width: 229px;
 }
 
-.book-card__button:hover {
-  background-color: #506F62;
+.button:hover {
+  background-color: var(--default-button-hover-color);
+}
+
+.form {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__text-input {
+  max-width: 280px;
+  width: 100%;
+  height: 40px;
+  padding: 0px 15px;
+  font-family: var(--main-content-font), serif;
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.form__button {
+  min-width: 280px;
+}
+
+.form__input-label {
+  margin-bottom: 12px;
+}
+
+.form__form-outer {
+  background-color: var(--white-color);
+  min-height: 350px;
+  max-width: inherit;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding-top: 20px;
+}
+
+.form__input-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28px;
+  align-self: baseline;
+}
+
+.checkbox-label {
+  margin-bottom: 0px;
+  padding-left: 5px;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 1200px) {
-  .nav__list {
-    display: none;
-  }
-  
-  .search__input {
-    min-width: 200px;
-  }
-  
-  .features-section__cards-wrapper {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .features-section__card {
-    min-width: 45%;
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 768px) {
-  .header {
-    height: 60px;
-  }
-  
-  .logo {
-    height: 60px;
-    width: 180px;
-  }
-  
-  .logo__logo-image {
-    height: 50px;
-  }
-  
-  .nav__link {
-    height: 60px;
-  }
-  
-  .search {
-    margin: 0 10px;
-  }
-  
-  .search__input {
-    min-width: 150px;
-    padding: 0 10px;
-  }
-  
-  .features-section {
-    height: auto;
-    padding: 30px 0;
-  }
-  
-  .features-section__card {
-    min-width: 100%;
-    max-width: 500px;
-  }
-}
-
-@media (max-width: 576px) {
-  .container {
-    padding: 0 15px;
-  }
-  
-  .logo {
-    width: 160px;
-  }
-  
-  .search__input {
-    min-width: 120px;
-    font-size: 14px;
-  }
-  
-  .search__input::placeholder {
-    font-size: 14px;
-  }
-  
-  .features-section {
-    gap: 40px;
-  }
-  
-  .features-section__cards-wrapper {
-    gap: 20px;
-  }
-  
-  .features-section__card-text {
-    width: 90%;
-  }
-}
