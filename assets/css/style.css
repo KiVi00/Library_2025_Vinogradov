@@ -1,19 +1,25 @@
 @font-face {
-  font-family: "Playfair Display";
-  src: url(../fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf);
-  font-display: optional;
+  font-family: 'Lora';
+  src: url('/assets/fonts/Lora-Regular.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url(../fonts/Montserrat/Montserrat-VariableFont_wght.ttf);
-  font-display: optional;
+  font-family: 'Montserrat';
+  src: url('/assets/fonts/Montserrat-VF.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: "Lora";
-  src: url(../fonts/Lora/Lora-VariableFont_wght.ttf);
-  font-display: optional;
+  font-family: 'Playfair Display';
+  src: url('/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('woff2');
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
 }
 
 :root {
@@ -236,7 +242,8 @@
 .features-section__card-title {
   text-align: center;
   margin-bottom: 5px;
-  font-weight: 600;
+  font-weight: normal;
+  font-size: 24px;
 }
 
 .features-section__card-text {
@@ -246,6 +253,7 @@
 
 .features-section__section-title {
   font-family: var(--heading-font);
+  font-weight: 400;
 }
 
 .features-section__header {
@@ -341,6 +349,7 @@
   border-radius: 4px;
   transition: background-color 0.3s ease;
   max-width: 229px;
+  font-family: var(--nav-font);
 }
 
 .button:hover {
