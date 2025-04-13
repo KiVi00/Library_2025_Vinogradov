@@ -1,22 +1,22 @@
 @font-face {
   font-family: 'Lora';
-  src: url('/assets/fonts/Lora-Regular.woff2') format('woff2');
-  font-weight: 100 900;
+  src: url('/assets/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700; 
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('/assets/fonts/Montserrat-VF.woff2') format('woff2');
-  font-weight: normal;
+  src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('woff2');
+  src: url('/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
   font-weight: 400 900;
   font-display: swap;
@@ -354,6 +354,10 @@
 
 .button:hover {
   background-color: var(--default-button-hover-color);
+}
+
+.registration-button {
+  margin-top: 20px;
 }
 
 .form {
