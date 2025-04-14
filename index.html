@@ -2,10 +2,7 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="Электронная библиотека M-Library" />
     <title>M-Library</title>
@@ -15,21 +12,23 @@
   </head>
   <body class="page">
     <header class="header">
-      <div class="container container__header">
+      <div class="container container--header">
         <a href="/index.html" class="logo">
           <img
             src="/assets/img/logolibrary_2.svg"
             alt="M-Library"
-            class="logo__logo-image"
+            class="logo__image"
             width="229"
             height="65"
           />
         </a>
-        <nav class="nav">
+        <nav class="nav nav--header">
           <ul class="nav__list" aria-label="menu">
-            <li class="nav__item"><a href="#" class="nav__link">Каталог</a></li>
             <li class="nav__item">
-              <a href="/subcription.html" class="nav__link">Подписка</a>
+              <a href="/catalog.html" class="nav__link">Каталог</a>
+            </li>
+            <li class="nav__item">
+              <a href="/subscription.html" class="nav__link">Подписка</a>
             </li>
             <li class="nav__item">
               <a href="/about.html" class="nav__link">О&nbsp;библиотеке</a>
@@ -97,7 +96,7 @@
       </div>
     </header>
     <main class="main">
-      <div class="container container__main">
+      <div class="container container--main">
         <h1 class="main__title">Библиотека M-Library</h1>
         <section class="features-section">
           <header class="features-section__header">
@@ -134,74 +133,119 @@
           <header class="book-section__header">
             <h2 class="book-section__title">Популярные</h2>
           </header>
-          <div class="book-section__grid-wrapper">
-            <div class="book-section__grid">
-              <div class="book-card">
-                <img
-                  class="book-card__image"
-                  src="/assets/img/book-cover.webp"
-                  alt="book-cover"
-                  width="180"
-                  height="297"
-                />
-                <button class="button">Читать онлайн</button>
-              </div>
-              <div class="book-card">
-                <img
-                  class="book-card__image"
-                  src="/assets/img/book-cover.webp"
-                  alt="book-cover"
-                  width="180"
-                  height="297"
-                />
-                <button class="button">Читать онлайн</button>
-              </div>
-              <div class="book-card">
-                <img
-                  class="book-card__image"
-                  src="/assets/img/book-cover.webp"
-                  alt="book-cover"
-                  width="180"
-                  height="297"
-                />
-                <button class="button">Читать онлайн</button>
-              </div>
-              <div class="book-card">
-                <img
-                  class="book-card__image"
-                  src="/assets/img/book-cover.webp"
-                  alt="book-cover"
-                  width="180"
-                  height="297"
-                />
-                <button class="button">Читать онлайн</button>
-              </div>
-              <div class="book-card">
-                <img
-                  class="book-card__image"
-                  src="/assets/img/book-cover.webp"
-                  alt="book-cover"
-                  width="180"
-                  height="297"
-                />
-                <button class="button">Читать онлайн</button>
-              </div>
-              <div class="book-card">
-                <img
-                  class="book-card__image"
-                  src="/assets/img/book-cover.webp"
-                  alt="book-cover"
-                  width="180"
-                  height="297"
-                />
-                <button class="button">Читать онлайн</button>
-              </div>
+          <div class="book-section__grid">
+            <svg
+              width="55.297"
+              height="63.798"
+              viewBox="0 0 55.297 63.798"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
+                fill="#737373"
+                fill-rule="evenodd"
+                stroke-width="0"
+                stroke="#2B2A29"
+                transform="translate(-0 0)"
+              />
+            </svg>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="button button--book-card">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="button button--book-card">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="button button--book-card">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="button button--book-card">Читать онлайн</button>
+            </div>
+            <div class="book-card">
+              <img
+                class="book-card__image"
+                src="/assets/img/book-cover.webp"
+                alt="book-cover"
+                width="180"
+                height="297"
+              />
+              <button class="button button--book-card">Читать онлайн</button>
+            </div>
+            <svg
+              width="55.297"
+              height="63.798"
+              viewBox="0 0 55.297 63.798"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
+                fill="#393E46"
+                fill-rule="evenodd"
+                stroke-width="0"
+                stroke="#2B2A29"
+              />
+            </svg>
           </div>
         </section>
         <section class="book-section">
           <h2 class="book-section__title">Недавно добавленные</h2>
           <div class="book-section__grid">
+            <svg
+              width="55.297"
+              height="63.798"
+              viewBox="0 0 55.297 63.798"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
+                fill="#737373"
+                fill-rule="evenodd"
+                stroke-width="0"
+                stroke="#2B2A29"
+                transform="translate(-0 0)"
+              />
+            </svg>
             <div class="book-card">
               <img
                 class="book-card__image"
@@ -210,7 +254,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -220,7 +264,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -230,7 +274,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -240,7 +284,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -250,7 +294,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -260,13 +304,44 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
+            <svg
+              width="55.297"
+              height="63.798"
+              viewBox="0 0 55.297 63.798"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
+                fill="#393E46"
+                fill-rule="evenodd"
+                stroke-width="0"
+                stroke="#2B2A29"
+              />
+            </svg>
           </div>
         </section>
         <section class="book-section">
           <h2 class="book-section__title">Доступные по подписке</h2>
           <div class="book-section__grid">
+            <svg
+              width="55.297"
+              height="63.798"
+              viewBox="0 0 55.297 63.798"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
+                fill="#737373"
+                fill-rule="evenodd"
+                stroke-width="0"
+                stroke="#2B2A29"
+                transform="translate(-0 0)"
+              />
+            </svg>
             <div class="book-card">
               <img
                 class="book-card__image"
@@ -275,7 +350,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -285,7 +360,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -295,7 +370,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -305,7 +380,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -315,7 +390,7 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
             <div class="book-card">
               <img
@@ -325,15 +400,30 @@
                 width="180"
                 height="297"
               />
-              <button class="button">Читать онлайн</button>
+              <button class="button button--book-card">Читать онлайн</button>
             </div>
+            <svg
+              width="55.297"
+              height="63.798"
+              viewBox="0 0 55.297 63.798"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
+                fill="#393E46"
+                fill-rule="evenodd"
+                stroke-width="0"
+                stroke="#2B2A29"
+              />
+            </svg>
           </div>
         </section>
       </div>
     </main>
     <footer class="footer">
       <div class="container">
-        <nav class="nav footer__nav">
+        <nav class="nav nav--footer">
           <div class="footer__info">
             <span
               >&copy; Электронная библиотека M-Library, 2025. Контактный e-mail:

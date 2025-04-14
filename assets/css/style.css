@@ -74,7 +74,7 @@
   scale: 1.05;
 }
 
-.logo__logo-image {
+.logo__image {
   height: 65px;
   min-width: 229px;
 }
@@ -87,12 +87,12 @@
   height: fit-content;
 }
 
-.container__main {
+.container--main {
   flex-direction: column;
   align-items: center;
 }
 
-.container__header {
+.container--header {
   align-items: center;
 }
 
@@ -242,7 +242,7 @@
 .features-section__card-title {
   text-align: center;
   margin-bottom: 5px;
-  font-weight: normal;
+  font-weight: 500;
   font-size: 24px;
 }
 
@@ -253,7 +253,7 @@
 
 .features-section__section-title {
   font-family: var(--heading-font);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .features-section__header {
@@ -267,11 +267,6 @@
   width: 100%;
 }
 
-.book-section__grid-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
 
 .book-section__title {
   display: flex;
@@ -283,9 +278,9 @@
 }
 
 .book-section__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  display: flex;
   justify-content: center;
+  align-items: center;
   column-gap: 30px;
   row-gap: 20px;
   padding: 30px;
@@ -335,7 +330,7 @@
   background-color: var(--nav-button-hover-color);
 }
 
-.footer__nav {
+.nav--footer {
   display: inline-flex;
   font-size: 1rem; 
 }
@@ -356,7 +351,7 @@
   background-color: var(--default-button-hover-color);
 }
 
-.registration-button {
+.button--registration {
   margin-top: 20px;
 }
 
@@ -376,7 +371,7 @@
   margin-bottom: 16px;
 }
 
-.form__button {
+.button--form {
   min-width: 280px;
 }
 
