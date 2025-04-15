@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Lora';
-  src: url('/assets/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+  src: url('/Library_2025_Vinogradov/assets/fonts/Lora-VariableFont_wght.ttf') format('truetype');
   font-weight: 400 700; 
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Montserrat';
-  src: url('/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  src: url('/Library_2025_Vinogradov/assets/fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  src: url('/Library_2025_Vinogradov/assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
   font-weight: 400 900;
   font-display: swap;
@@ -385,9 +385,10 @@
   max-width: inherit;
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: baseline;
+  justify-content: baseline;
+  align-items: center;
   padding-top: 20px;
+  flex-direction: column;
 }
 
 .form__input-wrapper {
@@ -402,5 +403,20 @@
   padding-left: 5px;
 }
 
+.error-message {
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 15px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+}
+
+.nav__link[href="logout.php"] {
+  color: #dc3545;
+}
+
+.nav__link[href="logout.php"]:hover {
+  color: #bb2d3b;
+}
 
 

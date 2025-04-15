@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -6,16 +10,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta name="description" content="Электронная библиотека M-Library" />
     <title>M-Library</title>
-    <link rel="stylesheet" href="/assets/css/reset.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/media.css" />
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/media.css" />
   </head>
   <body class="page">
     <header class="header">
       <div class="container container--header">
-        <a href="/index.html" class="logo">
+        <a href="index.php" class="logo">
           <img
-            src="/assets/img/logolibrary_2.svg"
+            src="assets/img/logolibrary_2.svg"
             alt="M-Library"
             class="logo__image"
             width="229"
@@ -25,13 +29,13 @@
         <nav class="nav nav--header">
           <ul class="nav__list" aria-label="menu">
             <li class="nav__item">
-              <a href="/catalog.html" class="nav__link">Каталог</a>
+              <a href="catalog.html" class="nav__link">Каталог</a>
             </li>
             <li class="nav__item">
-              <a href="/subscription.html" class="nav__link">Подписка</a>
+              <a href="/Library_2025_Vinogradov/subscription.php" class="nav__link">Подписка</a>
             </li>
             <li class="nav__item">
-              <a href="/about.html" class="nav__link">О&nbsp;библиотеке</a>
+              <a href="about.html" class="nav__link">О&nbsp;библиотеке</a>
             </li>
           </ul>
         </nav>
@@ -86,13 +90,22 @@
           </button>
         </div>
         <ul class="nav__list">
+        <?php if (isset($_SESSION['user_id'])): ?>
           <li class="nav__item">
-            <a href="/login.html" class="nav__link">Вход</a>
+            <span class="nav__link">Привет, <?= htmlspecialchars($_SESSION['user_email'] ?? '') ?></span>
           </li>
           <li class="nav__item">
-            <a href="/registration.html" class="nav__link">Регистрация</a>
+            <a href="/Library_2025_Vinogradov/php/logout.php" class="nav__link">Выход</a>
           </li>
-        </ul>
+        <?php else: ?>
+          <li class="nav__item">
+            <a href="login.php" class="nav__link">Вход</a>
+          </li>
+          <li class="nav__item">
+            <a href="registration.php" class="nav__link">Регистрация</a>
+          </li>
+        <?php endif; ?>
+      </ul>
       </div>
     </header>
     <main class="main">
@@ -153,7 +166,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -163,7 +176,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -173,7 +186,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -183,7 +196,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -193,7 +206,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -203,7 +216,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -249,7 +262,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -259,7 +272,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -269,7 +282,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -279,7 +292,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -289,7 +302,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -299,7 +312,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -345,7 +358,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -355,7 +368,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -365,7 +378,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -375,7 +388,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -385,7 +398,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -395,7 +408,7 @@
             <div class="book-card">
               <img
                 class="book-card__image"
-                src="/assets/img/book-cover.webp"
+                src="assets/img/book-cover.webp"
                 alt="book-cover"
                 width="180"
                 height="297"
@@ -432,10 +445,10 @@
               ></span
             >
           </div>
-          <a class="footer__link" href="/for-authors.html"
+          <a class="footer__link" href="for-authors.html"
             >Авторам и правообладателям</a
           >
-          <a class="footer__link" href="/conf-policy.html"
+          <a class="footer__link" href="conf-policy.html"
             >Политика конфиденциальности</a
           >
         </nav>
