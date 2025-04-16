@@ -132,6 +132,15 @@ unset($_SESSION['registration_errors']);
             placeholder="Пароль"
             required
             minlength="6">
+            <label for="password-input" class="form__input-label">Имя</label>
+          <input
+            type="text"
+            name="first-name"
+            id="first-name-input"
+            class="form__text-input"
+            placeholder="Пароль"
+            required
+            >
           <button type="submit" class="button button--form button--registration">Зарегистрироваться</button>
         </form>
       </div>

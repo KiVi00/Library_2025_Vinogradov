@@ -8,6 +8,7 @@ $_SESSION['registration_errors'] = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $password = trim($_POST['password'] ?? '');
+    $first_name = trim($_POST['first-name'] ?? '');
 
     // Валидация
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -29,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // Регистрация пользователя
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("INSERT INTO reader (email, password_hash) VALUES (?, ?)");
-                $stmt->execute([$email, $passwordHash]);
+                $stmt = $pdo->prepare("INSERT INTO reader (email, password_hash, first_name) VALUES (?, ?, ?)");
+                $stmt->execute([$email, $passwordHash, $first_name]);
 
                 // Очищаем ошибки при успехе
                 unset($_SESSION['registration_errors']);
