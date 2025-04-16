@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($_SESSION['registration_errors'])) {
         try {
             // Проверка существующего email
-            $stmt = $pdo->prepare("SELECT id FROM reader WHERE Email = ?");
+            $stmt = $pdo->prepare("SELECT reader_id FROM reader WHERE email = ?");
             $stmt->execute([$email]);
 
             if ($stmt->rowCount() > 0) {
@@ -29,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 // Регистрация пользователя
                 $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("INSERT INTO reader (Email, PasswordHash) VALUES (?, ?)");
+                $stmt = $pdo->prepare("INSERT INTO reader (email, password_hash) VALUES (?, ?)");
                 $stmt->execute([$email, $passwordHash]);
 
                 // Очищаем ошибки при успехе
                 unset($_SESSION['registration_errors']);
-                header("Location: /Library_2025_Vinogradov/login.php?registration=success");
+                header("Location: ../login.php?registration=success");
                 exit();
             }
         } catch (PDOException $e) {
@@ -44,5 +44,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Перенаправляем обратно на форму с ошибками
-header("Location: /Library_2025_Vinogradov/registration.php");
+header("Location: ../registration.php");
 exit();

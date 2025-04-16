@@ -37,12 +37,12 @@ unset($_SESSION['login_error']);
       </a>
       <nav class="nav nav--header">
         <ul class="nav__list" aria-label="menu">
-          <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
+          <li class="nav__item"><a href="catalog.php" class="nav__link">Каталог</a></li>
           <li class="nav__item">
             <a href="subscription.php" class="nav__link">Подписка</a>
           </li>
           <li class="nav__item">
-            <a href="about.html" class="nav__link">О&nbsp;библиотеке</a>
+            <a href="about.php" class="nav__link">О&nbsp;библиотеке</a>
           </li>
         </ul>
       </nav>
@@ -94,7 +94,7 @@ unset($_SESSION['login_error']);
             <span class="nav__link">Привет, <?= htmlspecialchars($_SESSION['user_email']) ?></span>
           </li>
           <li class="nav__item">
-            <a href="/Library_2025_Vinogradov/php/logout.php" class="nav__link">Выход</a>
+            <a href="php/logout.php" class="nav__link">Выход</a>
           </li>
         <?php else: ?>
           <li class="nav__item">
@@ -116,7 +116,7 @@ unset($_SESSION['login_error']);
             <?= htmlspecialchars($loginError) ?>
           </div>
         <?php endif; ?>
-        <form action="/Library_2025_Vinogradov/php/login-handler.php" method="POST" class="form">
+        <form action="php/login-handler.php" method="POST" class="form">
           <label for="email-input" class="form__input-label">Email</label>
           <input
             type="email"

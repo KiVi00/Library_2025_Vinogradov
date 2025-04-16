@@ -29,13 +29,13 @@ session_start();
         <nav class="nav nav--header">
           <ul class="nav__list" aria-label="menu">
             <li class="nav__item">
-              <a href="catalog.html" class="nav__link">Каталог</a>
+              <a href="catalog.php" class="nav__link">Каталог</a>
             </li>
             <li class="nav__item">
-              <a href="/Library_2025_Vinogradov/subscription.php" class="nav__link">Подписка</a>
+              <a href="subscription.php" class="nav__link">Подписка</a>
             </li>
             <li class="nav__item">
-              <a href="about.html" class="nav__link">О&nbsp;библиотеке</a>
+              <a href="about.php" class="nav__link">О&nbsp;библиотеке</a>
             </li>
           </ul>
         </nav>
@@ -95,7 +95,7 @@ session_start();
             <span class="nav__link">Привет, <?= htmlspecialchars($_SESSION['user_email'] ?? '') ?></span>
           </li>
           <li class="nav__item">
-            <a href="/Library_2025_Vinogradov/php/logout.php" class="nav__link">Выход</a>
+            <a href="php/logout.php" class="nav__link">Выход</a>
           </li>
         <?php else: ?>
           <li class="nav__item">
@@ -445,10 +445,10 @@ session_start();
               ></span
             >
           </div>
-          <a class="footer__link" href="for-authors.html"
+          <a class="footer__link" href="for-authors.php"
             >Авторам и правообладателям</a
           >
-          <a class="footer__link" href="conf-policy.html"
+          <a class="footer__link" href="conf-policy.php"
             >Политика конфиденциальности</a
           >
         </nav>

@@ -23,13 +23,13 @@ $password = trim($_POST['password'] ?? '');
 // Базовые проверки
 if (empty($email) || empty($password)) {
     $_SESSION['login_error'] = "Все поля обязательны для заполнения";
-    header("Location: /Library_2025_Vinogradov/login.php");
+    header("Location: ../login.php");
     exit();
 }
 
 try {
     // Поиск пользователя
-    $stmt = $pdo->prepare("SELECT * FROM reader WHERE Email = ?");
+    $stmt = $pdo->prepare("SELECT * FROM reader WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -37,31 +37,31 @@ try {
     error_log("Input password: " . $password);
     
     if ($user) {
-        error_log("Stored hash: " . $user['PasswordHash']);
-        error_log("Verification result: " . password_verify($password, $user['PasswordHash']));
+        error_log("Stored hash: " . $user['password_hash']);
+        error_log("Verification result: " . password_verify($password, $user['password_hash']));
     }
 
     if (!$user) {
         $_SESSION['login_error'] = "Пользователь не найден";
-        header("Location: /Library_2025_Vinogradov/login.php");
+        header("Location: ../login.php");
         exit();
     }
 
-    if (!password_verify($password, $user['PasswordHash'])) {
+    if (!password_verify($password, $user['password_hash'])) {
         $_SESSION['login_error'] = "Неверный пароль";
-        header("Location: /Library_2025_Vinogradov/login.php");
+        header("Location: ../login.php");
         exit();
     }
 
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['user_email'] = $user['Email'];
+    $_SESSION['user_id'] = $user['reader_id'];
+    $_SESSION['user_email'] = $user['email'];
     
-    header("Location: /Library_2025_Vinogradov/index.php");
+    header("Location: ../index.php");
     exit();
 
 } catch (PDOException $e) {
     error_log("Ошибка БД: " . $e->getMessage());
     $_SESSION['login_error'] = "Ошибка сервера";
-    header("Location: /Library_2025_Vinogradov/login.php");
+    header("Location: ../login.php");
     exit();
 }
