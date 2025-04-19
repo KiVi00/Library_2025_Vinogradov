@@ -2,25 +2,20 @@
 session_start();
 require_once 'connect-db.php';
 
-// Включение детального вывода ошибок
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Проверка метода запроса
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die("Неверный метод запроса");
 }
 
-// Проверка CSRF-токена
 if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== ($_SESSION['csrf_token'] ?? '')) {
     die("Ошибка безопасности CSRF");
 }
 
-// Получение и очистка данных
 $email = trim($_POST['email'] ?? '');
 $password = trim($_POST['password'] ?? '');
 
-// Базовые проверки
 if (empty($email) || empty($password)) {
     $_SESSION['login_error'] = "Все поля обязательны для заполнения";
     header("Location: ../login.php");
@@ -28,7 +23,6 @@ if (empty($email) || empty($password)) {
 }
 
 try {
-    // Поиск пользователя
     $stmt = $pdo->prepare("SELECT * FROM reader WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);

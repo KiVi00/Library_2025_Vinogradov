@@ -107,6 +107,25 @@
           <h2 class="features-section__section-title">
             Выберите группировку
           </h2>
+          <div class="radio">
+            <label class="radio__input-label">
+              <input type="radio" name="option" class="radio__input" checked>
+              <span class="radio__custom"></span>
+              <span class="radio__text">Первая опция</span>
+            </label>
+
+            <label class="radio__input-label">
+              <input type="radio" name="option" class="radio__input">
+              <span class="radio__custom"></span>
+              <span class="radio__text">Вторая опция</span>
+            </label>
+
+            <label class="radio__input-label">
+              <input type="radio" name="option" class="radio__input" disabled>
+              <span class="radio__custom"></span>
+              <span class="radio__text">Отключенная опция</span>
+            </label>
+          </div>
         </header>
       </section>
       <section class="book-section">
