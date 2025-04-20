@@ -1,22 +1,22 @@
 @font-face {
-  font-family: 'Lora';
-  src: url('../fonts/Lora-VariableFont_wght.ttf') format('truetype');
-  font-weight: 400 700; 
+  font-family: "Lora";
+  src: url("../fonts/Lora-VariableFont_wght.ttf") format("truetype");
+  font-weight: 400 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+  font-family: "Montserrat";
+  src: url("../fonts/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Playfair Display';
-  src: url('../fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-VariableFont_wght.ttf") format("truetype");
   font-style: normal;
   font-weight: 400 900;
   font-display: swap;
@@ -27,13 +27,13 @@
   --white-color: #f7f7f7;
   --nav-button-hover-color: #464d57;
   --nav-color: #393e46;
-  --default-button-color: #506F62;
+  --default-button-color: #506f62;
   --default-button-hover-color: #33373d;
-  --default-border-color: #BDBDBD;
+  --default-border-color: #bdbdbd;
   --default-icon-color: #c1c1c1;
   --default-icon-hover-color: #9b9b9b;
 
-  --header-color: #506F62;
+  --header-color: #506f62;
   --main-content-font: "Lora";
   --nav-font: "Montserrat";
   --heading-font: "Playfair Display";
@@ -160,7 +160,6 @@
 }
 
 .search__button {
-
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -176,12 +175,12 @@
 }
 
 .search__icon:hover {
-  color:var(--default-icon-hover-color);
+  color: var(--default-icon-hover-color);
 }
 
 .visually-hidden {
   border: 0;
-  clip: rect(1px,1px,1px,1px);
+  clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
   clip-path: inset(50%);
   height: 1px;
@@ -267,7 +266,6 @@
   width: 100%;
 }
 
-
 .book-section__title {
   display: flex;
   padding: 47px 64px 34px;
@@ -292,6 +290,28 @@
   flex-direction: column;
   gap: 10px;
   width: fit-content;
+}
+
+.book-card__no-image {
+  width: 180px;
+  height: 297px;
+  background: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 15px;
+}
+
+.book-card__title {
+  font-size: 1.1rem;
+  margin: 10px 0 5px;
+}
+
+.book-card__author {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
 }
 
 .footer {
@@ -332,7 +352,7 @@
 
 .nav--footer {
   display: inline-flex;
-  font-size: 1rem; 
+  font-size: 1rem;
 }
 
 .button {
@@ -420,78 +440,35 @@
 }
 
 .radio {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 10px;
   padding: 20px;
 }
 
-
-.radio__input {
-  position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-.radio__input-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  color: #333;
-  transition: all 0.2s ease;
-}
-
-.radio__custom {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #666;
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
   border-radius: 50%;
-  position: relative;
-  transition: all 0.2s ease;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--default-button-hover-color);
 }
 
-.radio__custom::after {
-  content: '';
-  position: absolute;
-  top: 23%;
-  left: 23%;
-  width: 12px;
-  height: 12px;
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  font: inherit;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid var(--default-button-color);
   border-radius: 50%;
-  background-color: #2196F3;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  display: grid;
+  place-content: center;
 }
-
-.radio__input:checked + .radio__custom {
-  border-color: #2196F3;
-}
-
-.radio__input:checked + .radio__custom::after {
-  opacity: 1;
-}
-
-.radio__input-label:hover .radio__custom {
-  border-color: #2196F3;
-  box-shadow: 0 0 5px rgba(33, 150, 243, 0.3);
-}
-
-.radio__input:focus-visible + .radio__custom {
-  outline: 2px solid #90caf9;
-  outline-offset: 2px;
-}
-
-.radio__input:disabled + .radio__custom {
-  border-color: #ccc;
-  background-color: #eee;
-  cursor: not-allowed;
-}
-
-.radio__input:disabled:checked + .radio__custom::after {
-  background-color: #999;
-}
-
-

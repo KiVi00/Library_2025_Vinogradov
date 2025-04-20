@@ -1,6 +1,8 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
   <meta charset="UTF-8" />
   <meta
@@ -108,23 +110,12 @@
             Выберите группировку
           </h2>
           <div class="radio">
-            <label class="radio__input-label">
-              <input type="radio" name="option" class="radio__input" checked>
-              <span class="radio__custom"></span>
-              <span class="radio__text">Первая опция</span>
-            </label>
-
-            <label class="radio__input-label">
-              <input type="radio" name="option" class="radio__input">
-              <span class="radio__custom"></span>
-              <span class="radio__text">Вторая опция</span>
-            </label>
-
-            <label class="radio__input-label">
-              <input type="radio" name="option" class="radio__input" disabled>
-              <span class="radio__custom"></span>
-              <span class="radio__text">Отключенная опция</span>
-            </label>
+            <input type="radio" name="option" id="alphabetic-sort" class="radio__input" checked>
+            <label class="radio__input-label" for="alphabetic-sort">По алфавиту</label>
+            <input type="radio" name="option" id="genre-sort" class="radio__input">
+            <label class="radio__input-label" for="genre-sort">По жанрам</label>
+            <input type="radio" name="option" id="author-sort" class="radio__input">
+            <label class="radio__input-label" for="author-sort">По авторам</label>
           </div>
         </header>
       </section>

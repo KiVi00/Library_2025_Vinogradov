@@ -161,7 +161,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -170,7 +170,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -179,7 +179,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -188,7 +188,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -197,7 +197,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -206,7 +206,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <svg
             width="55.297"
@@ -247,7 +247,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -256,7 +256,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -265,7 +265,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -274,7 +274,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -283,7 +283,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -292,7 +292,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <svg
             width="55.297"
@@ -333,7 +333,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -342,7 +342,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -351,7 +351,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -360,7 +360,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -369,7 +369,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
             <img
@@ -378,7 +378,7 @@ session_start();
               alt="book-cover"
               width="180"
               height="297" />
-            <button class="button button--book-card">Читать онлайн</button>
+            <a class="button button--book-card">Читать онлайн</a>
           </div>
           <svg
             width="55.297"
