@@ -1,8 +1,69 @@
 <?php
 session_start();
+require_once 'php/connect-db.php'; // Файл с настройками PDO
+
+// Настройка подключения PDO
+try {
+  $pdo = new PDO(
+    'mysql:host=localhost;dbname=projectlibrary;charset=utf8mb4',
+    'root',
+    '',
+    [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]
+  );
+} catch (PDOException $e) {
+  die('Ошибка подключения к базе данных: ' . $e->getMessage());
+}
+
+// Определяем тип сортировки
+$sortTypes = ['alphabetic', 'genre', 'author'];
+$sortType = isset($_GET['sort']) && in_array($_GET['sort'], $sortTypes)
+  ? $_GET['sort']
+  : 'alphabetic';
+
+// Получаем книги с жанрами и авторами
+try {
+  $query = "SELECT 
+                b.*, 
+                g.genre_name AS genre_name,
+                CONCAT_WS(' ',
+                    a.last_name,
+                    CONCAT(LEFT(a.first_name, 1), '.'),
+                    CONCAT(LEFT(a.middle_name, 1), '.')
+                ) AS author_name
+              FROM books b
+              LEFT JOIN genre g ON b.genre_id = g.id
+              LEFT JOIN authors a ON b.author_id = a.id";
+
+  $stmt = $pdo->prepare($query);
+  $stmt->execute();
+  $books = $stmt->fetchAll();
+} catch (PDOException $e) {
+  die('Ошибка выполнения запроса: ' . $e->getMessage());
+}
+
+// Группировка книг
+$groupedBooks = [];
+foreach ($books as $book) {
+  switch ($sortType) {
+    case 'genre':
+      $key = $book['genre_name'];
+      break;
+    case 'author':
+      $key = $book['author_name'];
+      break;
+    default:
+      $key = mb_strtoupper(mb_substr($book['title'], 0, 1, 'UTF-8'));
+  }
+  $groupedBooks[$key][] = $book;
+}
+ksort($groupedBooks);
 ?>
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8" />
   <meta
@@ -106,200 +167,54 @@ session_start();
       <h1 class="main__title">Каталог</h1>
       <section class="features-section">
         <header class="features-section__header">
-          <h2 class="features-section__section-title">
-            Выберите группировку
-          </h2>
-          <div class="radio">
-            <input type="radio" name="option" id="alphabetic-sort" class="radio__input" checked>
-            <label class="radio__input-label" for="alphabetic-sort">По алфавиту</label>
-            <input type="radio" name="option" id="genre-sort" class="radio__input">
-            <label class="radio__input-label" for="genre-sort">По жанрам</label>
-            <input type="radio" name="option" id="author-sort" class="radio__input">
-            <label class="radio__input-label" for="author-sort">По авторам</label>
-          </div>
+          <h2 class="features-section__section-title">Выберите группировку</h2>
+          <form method="GET" class="radio-form">
+            <div class="radio">
+              <input type="radio" name="sort" value="alphabetic" id="alphabetic-sort"
+                <?= $sortType === 'alphabetic' ? 'checked' : '' ?>>
+              <label class="radio__input-label" for="alphabetic-sort">По алфавиту</label>
+
+              <input type="radio" name="sort" value="genre" id="genre-sort"
+                <?= $sortType === 'genre' ? 'checked' : '' ?>>
+              <label class="radio__input-label" for="genre-sort">По жанрам</label>
+
+              <input type="radio" name="sort" value="author" id="author-sort"
+                <?= $sortType === 'author' ? 'checked' : '' ?>>
+              <label class="radio__input-label" for="author-sort">По авторам</label>
+            </div>
+          </form>
         </header>
       </section>
-      <section class="book-section">
-        <header class="book-section__header">
-          <h2 class="book-section__title">А</h2>
-        </header>
-        <div class="book-section__grid-wrapper">
-          <div class="book-section__grid">
-            <div class="book-card">
-              <img
-                class="book-card__image"
-                src="assets/img/book-cover.webp"
-                alt="book-cover"
-                width="180"
-                height="297" />
-              <button class="button">Читать онлайн</button>
-            </div>
-            <div class="book-card">
-              <img
-                class="book-card__image"
-                src="assets/img/book-cover.webp"
-                alt="book-cover"
-                width="180"
-                height="297" />
-              <button class="button">Читать онлайн</button>
-            </div>
-            <div class="book-card">
-              <img
-                class="book-card__image"
-                src="assets/img/book-cover.webp"
-                alt="book-cover"
-                width="180"
-                height="297" />
-              <button class="button">Читать онлайн</button>
-            </div>
-            <div class="book-card">
-              <img
-                class="book-card__image"
-                src="assets/img/book-cover.webp"
-                alt="book-cover"
-                width="180"
-                height="297" />
-              <button class="button">Читать онлайн</button>
-            </div>
-            <div class="book-card">
-              <img
-                class="book-card__image"
-                src="assets/img/book-cover.webp"
-                alt="book-cover"
-                width="180"
-                height="297" />
-              <button class="button">Читать онлайн</button>
-            </div>
-            <div class="book-card">
-              <img
-                class="book-card__image"
-                src="assets/img/book-cover.webp"
-                alt="book-cover"
-                width="180"
-                height="297" />
-              <button class="button">Читать онлайн</button>
+      <?php foreach ($groupedBooks as $groupTitle => $booksInGroup): ?>
+        <section class="book-section">
+          <header class="book-section__header">
+            <h2 class="book-section__title">
+              <?= htmlspecialchars($groupTitle) ?>
+              <?php if ($sortType === 'genre'): ?>
+              <?php endif; ?>
+            </h2>
+          </header>
+          <div class="book-section__grid-wrapper">
+            <div class="book-section__grid">
+              <?php foreach ($booksInGroup as $book): ?>
+                <div class="book-card">
+                  <img
+                    class="book-card__image"
+                    src="<?= htmlspecialchars($book['book_cover_url']) ?>"
+                    alt="Обложка книги <?= htmlspecialchars($book['title']) ?>"
+                    width="180"
+                    height="297" />
+                  <div class="book-meta">
+                    <div class="genre-badge"><?= htmlspecialchars($book['genre_name']) ?></div>
+                    <div class="author-info"><?= htmlspecialchars($book['author_name']) ?></div>
+                    <button class="button">Читать онлайн</button>
+                  </div>
+                </div>
+              <?php endforeach; ?>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="book-section">
-        <h2 class="book-section__title">Б</h2>
-        <div class="book-section__grid">
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-        </div>
-      </section>
-      <section class="book-section">
-        <h2 class="book-section__title">В</h2>
-        <div class="book-section__grid">
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <button class="button">Читать онлайн</button>
-          </div>
-        </div>
-      </section>
+        </section>
+      <?php endforeach; ?>
     </div>
   </main>
   <footer class="footer">
@@ -314,6 +229,13 @@ session_start();
       </nav>
     </div>
   </footer>
+  <script>
+    document.querySelectorAll('input[name="sort"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        this.form.submit();
+      });
+    });
+  </script>
 </body>
 
 </html>
