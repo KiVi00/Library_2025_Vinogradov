@@ -164,7 +164,7 @@
   border: none;
   cursor: pointer;
   height: auto;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .search__icon {
@@ -176,6 +176,11 @@
 
 .search__icon:hover {
   color: var(--default-icon-hover-color);
+}
+
+.search__form {
+  display: flex;
+  align-items: center;
 }
 
 .visually-hidden {
@@ -277,12 +282,18 @@
 
 .book-section__grid {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  column-gap: 30px;
-  row-gap: 20px;
+  justify-content: start;
+  flex-wrap: wrap;
+  column-gap: 25px;
+  row-gap: 25px;
   padding: 30px;
   width: 100%;
+  align-content:end;
+}
+
+.book-section__grid-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .book-card {
@@ -290,6 +301,7 @@
   flex-direction: column;
   gap: 10px;
   width: fit-content;
+  justify-content: space-between;
 }
 
 .book-card__no-image {
@@ -358,6 +370,8 @@
 .button {
   outline: none;
   border: none;
+  justify-content: center;
+  text-align: center;
   background-color: var(--default-button-color);
   color: var(--white-color);
   padding: 10px 20px;
@@ -365,6 +379,8 @@
   transition: background-color 0.3s ease;
   max-width: 229px;
   font-family: var(--nav-font);
+  cursor: default;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -471,4 +487,15 @@ input[type="radio"] {
   border-radius: 50%;
   display: grid;
   place-content: center;
+}
+
+.book-card__book-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.slider-arrows {
+  align-self: center;
+  width: 40px;
+  height: auto;
 }

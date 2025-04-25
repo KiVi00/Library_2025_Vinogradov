@@ -20,12 +20,7 @@ session_start();
   <header class="header">
     <div class="container container--header">
       <a href="index.php" class="logo">
-        <img
-          src="assets/img/logolibrary_2.svg"
-          alt="M-Library"
-          class="logo__image"
-          width="229"
-          height="65" />
+        <img src="assets/img/logolibrary_2.svg" alt="M-Library" class="logo__image" width="229" height="65" />
       </a>
       <nav class="nav nav--header">
         <ul class="nav__list" aria-label="menu">
@@ -41,46 +36,26 @@ session_start();
         </ul>
       </nav>
       <div class="search">
-        <form class="search__form">
+        <form class="search__form" action="search-results.php" method="GET">
           <label for="nav-search-input" class="search__label visually-hidden">Поиск</label>
-          <input
-            class="search__input"
-            type="search"
-            placeholder="Введите название книги или автора"
-            id="nav-search-input" />
+          <input class="search__input" type="search" placeholder="Введите название книги или автора"
+            id="nav-search-input" name="query"/>
+          <button type="submit" class="search__button" aria-label="search-button" title="Search" >
+            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="search__icon">
+              <g transform="matrix(-1 0 0 1 26 1)">
+                <path
+                  d="M9.30142 0C14.4383 0 18.6028 4.02625 18.6028 8.99261C18.6028 13.959 14.4383 17.9852 9.30142 17.9852C4.16409 17.9852 0 13.959 0 8.99261C0 4.02625 4.16409 6.92328e-07 9.30142 6.92328e-07C9.30142 6.92328e-07 9.30142 0 9.30142 0Z"
+                  fill="none" stroke-width="2" stroke="currentColor" transform="translate(6.397 0)" />
+                <path
+                  d="M7.8472 0C12.1815 0 15.6948 3.39668 15.6948 7.58667C15.6948 11.7771 12.1815 15.1737 7.8472 15.1737C3.51332 15.1737 0 11.7771 0 7.58667C0 3.39668 3.51332 1.19209e-07 7.8472 1.19209e-07C7.8472 1.19209e-07 7.8472 0 7.8472 0Z"
+                  transform="translate(7.842 1.32)" />
+                <path d="M8.79958 0L0 7.7117L2.66774 9.78633L10.1783 1.16597L8.79958 0Z" fill="currentColor"
+                  fill-rule="evenodd" stroke-width="2" stroke="currentColor" transform="translate(0 15.214)" />
+              </g>
+            </svg>
+          </button>
         </form>
-        <button
-          type="submit"
-          class="search__button"
-          aria-label="search-button"
-          title="Search">
-          <svg
-            width="27"
-            height="27"
-            viewBox="0 0 27 27"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="search__icon">
-            <g transform="matrix(-1 0 0 1 26 1)">
-              <path
-                d="M9.30142 0C14.4383 0 18.6028 4.02625 18.6028 8.99261C18.6028 13.959 14.4383 17.9852 9.30142 17.9852C4.16409 17.9852 0 13.959 0 8.99261C0 4.02625 4.16409 6.92328e-07 9.30142 6.92328e-07C9.30142 6.92328e-07 9.30142 0 9.30142 0Z"
-                fill="none"
-                stroke-width="2"
-                stroke="currentColor"
-                transform="translate(6.397 0)" />
-              <path
-                d="M7.8472 0C12.1815 0 15.6948 3.39668 15.6948 7.58667C15.6948 11.7771 12.1815 15.1737 7.8472 15.1737C3.51332 15.1737 0 11.7771 0 7.58667C0 3.39668 3.51332 1.19209e-07 7.8472 1.19209e-07C7.8472 1.19209e-07 7.8472 0 7.8472 0Z"
-                transform="translate(7.842 1.32)" />
-              <path
-                d="M8.79958 0L0 7.7117L2.66774 9.78633L10.1783 1.16597L8.79958 0Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-                stroke-width="2"
-                stroke="currentColor"
-                transform="translate(0 15.214)" />
-            </g>
-          </svg>
-        </button>
       </div>
       <ul class="nav__list">
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -140,258 +115,119 @@ session_start();
           <h2 class="book-section__title">Популярные</h2>
         </header>
         <div class="book-section__grid">
-          <svg
-            width="55.297"
-            height="63.798"
-            viewBox="0 0 55.297 63.798"
-            fill="none"
+          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
-              fill="#737373"
-              fill-rule="evenodd"
-              stroke-width="0"
-              stroke="#2B2A29"
-              transform="translate(-0 0)" />
+              fill="#737373" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" transform="translate(-0 0)" />
           </svg>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
-          <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <svg
-            width="55.297"
-            height="63.798"
-            viewBox="0 0 55.297 63.798"
-            fill="none"
+          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
-              fill="#393E46"
-              fill-rule="evenodd"
-              stroke-width="0"
-              stroke="#2B2A29" />
+              fill="#393E46" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" />
           </svg>
         </div>
       </section>
       <section class="book-section">
         <h2 class="book-section__title">Недавно добавленные</h2>
         <div class="book-section__grid">
-          <svg
-            width="55.297"
-            height="63.798"
-            viewBox="0 0 55.297 63.798"
-            fill="none"
+          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
-              fill="#737373"
-              fill-rule="evenodd"
-              stroke-width="0"
-              stroke="#2B2A29"
-              transform="translate(-0 0)" />
+              fill="#737373" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" transform="translate(-0 0)" />
           </svg>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
-          <svg
-            width="55.297"
-            height="63.798"
-            viewBox="0 0 55.297 63.798"
-            fill="none"
+          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
-              fill="#393E46"
-              fill-rule="evenodd"
-              stroke-width="0"
-              stroke="#2B2A29" />
+              fill="#393E46" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" />
           </svg>
         </div>
       </section>
       <section class="book-section">
         <h2 class="book-section__title">Доступные по подписке</h2>
         <div class="book-section__grid">
-          <svg
-            width="55.297"
-            height="63.798"
-            viewBox="0 0 55.297 63.798"
-            fill="none"
+          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
-              fill="#737373"
-              fill-rule="evenodd"
-              stroke-width="0"
-              stroke="#2B2A29"
-              transform="translate(-0 0)" />
+              fill="#737373" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" transform="translate(-0 0)" />
           </svg>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
           <div class="book-card">
-            <img
-              class="book-card__image"
-              src="assets/img/book-cover.webp"
-              alt="book-cover"
-              width="180"
-              height="297" />
+            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
             <a class="button button--book-card">Читать онлайн</a>
           </div>
-          <svg
-            width="55.297"
-            height="63.798"
-            viewBox="0 0 55.297 63.798"
-            fill="none"
+          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path
               d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
-              fill="#393E46"
-              fill-rule="evenodd"
-              stroke-width="0"
-              stroke="#2B2A29" />
+              fill="#393E46" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" />
           </svg>
         </div>
       </section>

@@ -28,12 +28,7 @@ unset($_SESSION['login_error']);
   <header class="header">
     <div class="container container--header">
       <a href="index.php" class="logo">
-        <img
-          src="assets/img/logolibrary_2.svg"
-          alt="M-Library"
-          class="logo__image"
-          width="229"
-          height="65" />
+        <img src="assets/img/logolibrary_2.svg" alt="M-Library" class="logo__image" width="229" height="65" />
       </a>
       <nav class="nav nav--header">
         <ul class="nav__list" aria-label="menu">
@@ -47,46 +42,26 @@ unset($_SESSION['login_error']);
         </ul>
       </nav>
       <div class="search">
-        <form class="search__form">
+        <form class="search__form" action="search-results.php" method="GET">
           <label for="nav-search-input" class="search__label visually-hidden">Поиск</label>
-          <input
-            class="search__input"
-            type="search"
-            placeholder="Введите название книги или автора"
-            id="nav-search-input" />
+          <input class="search__input" type="search" placeholder="Введите название книги или автора"
+            id="nav-search-input" name="query"/>
+          <button type="submit" class="search__button" aria-label="search-button" title="Search" >
+            <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
+              class="search__icon">
+              <g transform="matrix(-1 0 0 1 26 1)">
+                <path
+                  d="M9.30142 0C14.4383 0 18.6028 4.02625 18.6028 8.99261C18.6028 13.959 14.4383 17.9852 9.30142 17.9852C4.16409 17.9852 0 13.959 0 8.99261C0 4.02625 4.16409 6.92328e-07 9.30142 6.92328e-07C9.30142 6.92328e-07 9.30142 0 9.30142 0Z"
+                  fill="none" stroke-width="2" stroke="currentColor" transform="translate(6.397 0)" />
+                <path
+                  d="M7.8472 0C12.1815 0 15.6948 3.39668 15.6948 7.58667C15.6948 11.7771 12.1815 15.1737 7.8472 15.1737C3.51332 15.1737 0 11.7771 0 7.58667C0 3.39668 3.51332 1.19209e-07 7.8472 1.19209e-07C7.8472 1.19209e-07 7.8472 0 7.8472 0Z"
+                  transform="translate(7.842 1.32)" />
+                <path d="M8.79958 0L0 7.7117L2.66774 9.78633L10.1783 1.16597L8.79958 0Z" fill="currentColor"
+                  fill-rule="evenodd" stroke-width="2" stroke="currentColor" transform="translate(0 15.214)" />
+              </g>
+            </svg>
+          </button>
         </form>
-        <button
-          type="submit"
-          class="search__button"
-          aria-label="search-button"
-          title="Search">
-          <svg
-            width="27"
-            height="27"
-            viewBox="0 0 27 27"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="search__icon">
-            <g transform="matrix(-1 0 0 1 26 1)">
-              <path
-                d="M9.30142 0C14.4383 0 18.6028 4.02625 18.6028 8.99261C18.6028 13.959 14.4383 17.9852 9.30142 17.9852C4.16409 17.9852 0 13.959 0 8.99261C0 4.02625 4.16409 6.92328e-07 9.30142 6.92328e-07C9.30142 6.92328e-07 9.30142 0 9.30142 0Z"
-                fill="none"
-                stroke-width="2"
-                stroke="currentColor"
-                transform="translate(6.397 0)" />
-              <path
-                d="M7.8472 0C12.1815 0 15.6948 3.39668 15.6948 7.58667C15.6948 11.7771 12.1815 15.1737 7.8472 15.1737C3.51332 15.1737 0 11.7771 0 7.58667C0 3.39668 3.51332 1.19209e-07 7.8472 1.19209e-07C7.8472 1.19209e-07 7.8472 0 7.8472 0Z"
-                transform="translate(7.842 1.32)" />
-              <path
-                d="M8.79958 0L0 7.7117L2.66774 9.78633L10.1783 1.16597L8.79958 0Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-                stroke-width="2"
-                stroke="currentColor"
-                transform="translate(0 15.214)" />
-            </g>
-          </svg>
-        </button>
       </div>
       <ul class="nav__list">
         <?php if (isset($_SESSION['user_id'])): ?>
@@ -118,20 +93,9 @@ unset($_SESSION['login_error']);
         <?php endif; ?>
         <form action="php/login-handler.php" method="POST" class="form">
           <label for="email-input" class="form__input-label">Email</label>
-          <input
-            type="email"
-            name="email"
-            id="email-input"
-            class="form__text-input"
-            placeholder="Email"
-            required>
+          <input type="email" name="email" id="email-input" class="form__text-input" placeholder="Email" required>
           <label for="password-input" class="form__input-label">Пароль</label>
-          <input
-            type="password"
-            name="password"
-            id="password-input"
-            class="form__text-input"
-            placeholder="Пароль"
+          <input type="password" name="password" id="password-input" class="form__text-input" placeholder="Пароль"
             required>
           <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?? '' ?>">
           <button type="submit" class="button button--form">Войти</button>
