@@ -23,17 +23,26 @@ if (empty($email) || empty($password)) {
 }
 
 try {
-    $stmt = $pdo->prepare("SELECT * FROM reader WHERE email = ?");
+    // Исправленный запрос с JOIN и выбором статуса
+    $stmt = $pdo->prepare("
+        SELECT 
+            reader.reader_id AS reader_id,
+            reader.email,
+            reader.first_name,
+            reader.last_name,
+            reader.password_hash,
+            subscription.status AS subscription_status
+        FROM reader
+        LEFT JOIN subscription 
+            ON reader.subscription_id = subscription.id
+        WHERE reader.email = ?
+    ");
+    
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    // Логирование данных (можно закомментировать в продакшене)
     error_log("User data: " . print_r($user, true));
-    error_log("Input password: " . $password);
-    
-    if ($user) {
-        error_log("Stored hash: " . $user['password_hash']);
-        error_log("Verification result: " . password_verify($password, $user['password_hash']));
-    }
 
     if (!$user) {
         $_SESSION['login_error'] = "Пользователь не найден";
@@ -47,8 +56,12 @@ try {
         exit();
     }
 
+    // Обновление сессии с данными о подписке
     $_SESSION['user_id'] = $user['reader_id'];
     $_SESSION['user_email'] = $user['email'];
+    $_SESSION['user_first_name'] = $user['first_name'];
+    $_SESSION['user_last_name'] = $user['last_name'];
+    $_SESSION['user_subscription_status'] = $user['subscription_status']; // Новое поле
     
     header("Location: ../index.php");
     exit();

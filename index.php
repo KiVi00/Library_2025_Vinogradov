@@ -39,8 +39,8 @@ session_start();
         <form class="search__form" action="search-results.php" method="GET">
           <label for="nav-search-input" class="search__label visually-hidden">Поиск</label>
           <input class="search__input" type="search" placeholder="Введите название книги или автора"
-            id="nav-search-input" name="query"/>
-          <button type="submit" class="search__button" aria-label="search-button" title="Search" >
+            id="nav-search-input" name="query" />
+          <button type="submit" class="search__button" aria-label="search-button" title="Search">
             <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="search__icon">
               <g transform="matrix(-1 0 0 1 26 1)">
