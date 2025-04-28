@@ -88,12 +88,18 @@ if (!isset($_SESSION['user_id'])) {
             <h1 class="main__title">Подписка</h1>
             <section class="features-section">
                 <header class="features-section__header">
+                    <?php if (!empty($_SESSION['subscription_error'])): ?>
+                        <div class="error-message">
+                            <?= htmlspecialchars($_SESSION['subscription_error']) ?>
+                        </div>
+                    <?php endif; ?>
                     <h2 class="features-section__section-title">
                         Для приобретения подписки введите KiViN и нажмите на кнопку "Получить подписку"
                     </h2>
                     <form action="php/receive-subscription.php" method="POST" class="form">
                         <label for="key-word" class="form__input-label">Ключевое слово</label>
-                        <input class="form__text-input" type="text" maxlength="5" name="key-word" placeholder="Введите ключевое слово" id="key-word">
+                        <input class="form__text-input" type="text" maxlength="5" name="key-word"
+                            placeholder="Введите ключевое слово" id="key-word">
                         <button type="submit" class="button button--form">Получить подписку</button>
                     </form>
                 </header>

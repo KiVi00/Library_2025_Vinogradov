@@ -13,6 +13,7 @@ if (!empty($searchQuery)) {
                     b.description,
                     b.book_cover_url,
                     b.file_url,
+                    b.access_level,
                     CONCAT_WS(' ', a.last_name, a.first_name, a.middle_name) AS author_full_name
                 FROM books b
                 JOIN authors a ON b.author_id = a.id
@@ -30,7 +31,7 @@ if (!empty($searchQuery)) {
       'search2' => $searchParam,
       'search3' => $searchParam,
       'search4' => $searchParam,
-      'search5' => $searchParam
+      'search5' => $searchParam,
     ]);
 
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -140,9 +141,21 @@ if (!empty($searchQuery)) {
                   <h3 class="book-card__title"><?= htmlspecialchars($book['title']) ?></h3>
                   <p class="book-card__author"><?= htmlspecialchars($book['author_full_name']) ?? 'Автор неизвестен' ?></p>
                 </div>
-                <a href="<?= htmlspecialchars($book['file_url']) ?>" class="button button--book-card" target="_blank">
-                  Читать онлайн
-                </a>
+                <?php if ($book['access_level'] === 'free'): ?>
+                  <a href="<?= htmlspecialchars($book['file_url']) ?>" class="button button--book-card" target="_blank">
+                    Читать онлайн
+                  </a>
+                <?php elseif (isset($_SESSION['user_id']) && isset($_SESSION['user_subscription_status']) && $_SESSION['user_subscription_status'] === 'active'): ?>
+                  <!-- Платная книга, но у пользователя есть активная подписка -->
+                  <a href="<?= htmlspecialchars($book['file_url']) ?>" class="button button--book-card" target="_blank">
+                    Читать онлайн
+                  </a>
+                <?php else: ?>
+                  <!-- Платная книга, но нет подписки -->
+                  <a href="subscription.php" class="button button--book-card button--disabled">
+                    Требуется подписка
+                  </a>
+                <?php endif; ?>
               </div>
             <?php endforeach; ?>
           </div>
