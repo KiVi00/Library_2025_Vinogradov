@@ -2,21 +2,6 @@
 session_start();
 require_once 'php/connect-db.php'; // Файл с настройками PDO
 
-// Настройка подключения PDO
-try {
-  $pdo = new PDO(
-    'mysql:host=localhost;dbname=projectlibrary;charset=utf8mb4',
-    'root',
-    '',
-    [
-      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ]
-  );
-} catch (PDOException $e) {
-  die('Ошибка подключения к базе данных: ' . $e->getMessage());
-}
-
 // Определяем тип сортировки
 $sortTypes = ['alphabetic', 'genre', 'author'];
 $sortType = isset($_GET['sort']) && in_array($_GET['sort'], $sortTypes)
@@ -99,7 +84,7 @@ ksort($groupedBooks);
         <form class="search__form" action="search-results.php" method="GET">
           <label for="nav-search-input" class="search__label visually-hidden">Поиск</label>
           <input class="search__input" type="search" placeholder="Введите название книги или автора"
-            id="nav-search-input" name="query"/>
+            id="nav-search-input" name="query" />
           <button type="submit" class="search__button" aria-label="search-button" title="Search">
             <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"
               class="search__icon">
@@ -174,7 +159,19 @@ ksort($groupedBooks);
                   <div class="book-card__book-meta">
                     <div class="book-card__genre-badge"><?= htmlspecialchars($book['genre_name']) ?></div>
                     <div class="book-card__author-info"><?= htmlspecialchars($book['author_name']) ?></div>
-                    <a class="button button--book-card">Читать онлайн</a>
+                    <?php if ($book['access_level'] === 'free'): ?>
+                      <a href="<?= htmlspecialchars($book['file_url']) ?>" class="button button--book-card" target="_blank">
+                        Читать онлайн
+                      </a>
+                    <?php elseif (isset($_SESSION['user_id']) && isset($_SESSION['user_subscription_status']) && $_SESSION['user_subscription_status'] === 'active'): ?>
+                      <a href="<?= htmlspecialchars($book['file_url']) ?>" class="button button--book-card" target="_blank">
+                        Читать онлайн
+                      </a>
+                    <?php else: ?>
+                      <a href="subscription.php" class="button button--book-card button--disabled">
+                        По подписке
+                      </a>
+                    <?php endif; ?>
                   </div>
                 </div>
               <?php endforeach; ?>

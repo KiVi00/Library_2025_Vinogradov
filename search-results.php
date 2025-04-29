@@ -153,7 +153,7 @@ if (!empty($searchQuery)) {
                 <?php else: ?>
                   <!-- Платная книга, но нет подписки -->
                   <a href="subscription.php" class="button button--book-card button--disabled">
-                    Требуется подписка
+                    По подписке
                   </a>
                 <?php endif; ?>
               </div>

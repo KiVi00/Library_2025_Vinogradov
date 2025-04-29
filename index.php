@@ -1,5 +1,41 @@
 <?php
 session_start();
+require_once 'php/connect-db.php';
+
+// Функция для получения популярных книг (кэширование на 24 часа)
+function getPopularBooks($pdo)
+{
+  $cacheFile = 'cache/popular_books.cache';
+
+  // Если кэш актуален - возвращаем его
+  if (file_exists($cacheFile) && time() - filemtime($cacheFile) < 86400) {
+    return unserialize(file_get_contents($cacheFile));
+  }
+
+  // Получаем 5 случайных книг
+  $stmt = $pdo->query("SELECT * FROM books ORDER BY RAND() LIMIT 5");
+  $books = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  // Сохраняем в кэш
+  file_put_contents($cacheFile, serialize($books));
+  return $books;
+}
+
+try {
+  // Популярные книги
+  $popularBooks = getPopularBooks($pdo);
+
+  // Недавно добавленные (последние 5)
+  $stmt = $pdo->query("SELECT * FROM books ORDER BY add_time DESC LIMIT 5");
+  $recentBooks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+  // Книги по подписке
+  $stmt = $pdo->query("SELECT * FROM books WHERE access_level = 'subscription'");
+  $subscriptionBooks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+} catch (PDOException $e) {
+  die('Ошибка выполнения запроса: ' . $e->getMessage());
+}
 ?>
 
 <!DOCTYPE html>
@@ -110,125 +146,69 @@ session_start();
           </div>
         </div>
       </section>
+
       <section class="book-section">
         <header class="book-section__header">
           <h2 class="book-section__title">Популярные</h2>
         </header>
-        <div class="book-section__grid">
-          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
-              fill="#737373" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" transform="translate(-0 0)" />
-          </svg>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
+        <div class="book-section__grid-wrapper">
+          <div class="book-section__grid">
+            <?php foreach ($popularBooks as $book): ?>
+              <div class="book-card">
+                <img class="book-card__image" src="<?= htmlspecialchars($book['book_cover_url']) ?>"
+                  alt="Обложка книги <?= htmlspecialchars($book['title']) ?>" width="180" height="297" />
+                <div class="book-card__book-meta">
+                  <?php include 'php/book_access_button.php'; ?>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
-              fill="#393E46" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" />
-          </svg>
         </div>
       </section>
+
       <section class="book-section">
-        <h2 class="book-section__title">Недавно добавленные</h2>
-        <div class="book-section__grid">
-          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
-              fill="#737373" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" transform="translate(-0 0)" />
-          </svg>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
+        <header class="book-section__header">
+          <h2 class="book-section__title">Недавно добавленные</h2>
+        </header>
+        <div class="book-section__grid-wrapper">
+          <div class="book-section__grid">
+            <?php foreach ($recentBooks as $book): ?>
+              <div class="book-card">
+                <img class="book-card__image" src="<?= htmlspecialchars($book['book_cover_url']) ?>"
+                  alt="Обложка книги <?= htmlspecialchars($book['title']) ?>" width="180" height="297" />
+                <div class="book-card__book-meta">
+                  <?php include 'php/book_access_button.php'; ?>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
-              fill="#393E46" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" />
-          </svg>
         </div>
       </section>
+
       <section class="book-section">
-        <h2 class="book-section__title">Доступные по подписке</h2>
-        <div class="book-section__grid">
-          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M55.2967 63.7981L37.38 31.899L55.2967 0C55.2967 0 0 31.899 0 31.899C18.4354 42.5352 36.8613 53.1619 55.2967 63.7981C55.2967 63.7981 55.2967 63.7981 55.2967 63.7981Z"
-              fill="#737373" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" transform="translate(-0 0)" />
-          </svg>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
+        <header class="book-section__header">
+          <h2 class="book-section__title">Доступные по подписке</h2>
+        </header>
+        <div class="book-section__grid-wrapper">
+          <div class="book-section__grid">
+            <?php foreach ($subscriptionBooks as $book): ?>
+              <div class="book-card">
+                <img class="book-card__image" src="<?= htmlspecialchars($book['book_cover_url']) ?>"
+                  alt="Обложка книги <?= htmlspecialchars($book['title']) ?>" width="180" height="297" />
+                <div class="book-card__book-meta">
+                  <?php if (isset($_SESSION['user_subscription_status']) && $_SESSION['user_subscription_status'] === 'active'): ?>
+                    <a href="<?= htmlspecialchars($book['file_url']) ?>" class="button button--book-card" target="_blank">
+                      Читать онлайн
+                    </a>
+                  <?php else: ?>
+                    <a href="subscription.php" class="button button--book-card button--disabled">
+                      По подписке
+                    </a>
+                  <?php endif; ?>
+                </div>
+              </div>
+            <?php endforeach; ?>
           </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <div class="book-card">
-            <img class="book-card__image" src="assets/img/book-cover.webp" alt="book-cover" width="180" height="297" />
-            <a class="button button--book-card">Читать онлайн</a>
-          </div>
-          <svg class="slider-arrows" width="55.297" height="63.798" viewBox="0 0 55.297 63.798" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M0 0L17.9167 31.899L0 63.7981C0 63.7981 55.2966 31.899 55.2966 31.899C36.8613 21.2629 18.4354 10.6362 0 0C0 0 0 0 0 0Z"
-              fill="#393E46" fill-rule="evenodd" stroke-width="0" stroke="#2B2A29" />
-          </svg>
         </div>
       </section>
     </div>
